@@ -82,7 +82,7 @@ The JSON response is structured as follows:
 ## Underwriting
 
 A server-side underwriting service is available at the following url:
-`...`
+`https://inscope-takehome-service.onrender.com/underwrite`
 
 
 To check a client's eligibility, create a POST request where the body contains a JSON object with the keys:
