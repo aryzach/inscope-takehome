@@ -126,6 +126,7 @@ For example, a client with a balance of $123.45, with 3 in-period transactions w
   1. Describe which task you found most difficult in the implementation, and why.
 
   The most difficult task was an attempt to complete this quickly. I haven't worked on much frontend in a year or two so was rusty.
+
   2. What lead you to choose these libraries or frameworks you used in your implementation?
 
   React is industry standard and a framework I'm familiar with. Components make state management easier.
