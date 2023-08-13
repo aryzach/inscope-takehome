@@ -124,11 +124,16 @@ For example, a client with a balance of $123.45, with 3 in-period transactions w
 # Follow-Up Questions
 
   1. Describe which task you found most difficult in the implementation, and why.
+
   The most difficult task was an attempt to complete this quickly. I haven't worked on much frontend in a year or two so was rusty.
   2. What lead you to choose these libraries or frameworks you used in your implementation?
+
   React is industry standard and a framework I'm familiar with. Components make state management easier.
+
   Typescript is also becoming an industry standard and allows for better type checking to catch bugs before runtime. 
+
   3. If there were no time restrictions for this exercise, what improvements would you make in the following areas:
+
       - Implementation 
         * finish implementation, primarily the underwritting service
         * format the balance to currency
@@ -138,10 +143,13 @@ For example, a client with a balance of $123.45, with 3 in-period transactions w
         * I'm unsure if the page needs to be refreshed to load data after making the first request to the Render service. If so, I'd make modifications so that the user doesn't have to refresh the page
       - Accessibility
         * make the app screen-reader friendly with ARIA
+
   4. If you were asked to refactor this exercise so it could be display historical data, what changes would you make?
+
       - We could display a transactions list when selecting a user. To make it more readable, we could route to a seperate 'user detail' page that's not cluttered by other users
       - We could display previous eligibility results (this might require a backend change)
   5. Assume you are provided with a unique identifier for loan application submitted by the clerks. You are tasked with storing requests in persistent storage so bank managers can track patterns in loan applications. Give a high level overview of how you would implement this feature.
+
   To track loan applications, I would create a service that takes in the unique identifier and other application information (current_balance, num_transactions, etc), and stores it in some database. How to create the service and which database to use will depend on the current infrastructure of the other parts of the business, because it's generally wise to minimize dependencies on technologies if it can be avoided. One approach would be to use an AWS Lambda function that's connected to DynamoDB. The DynamoDB database would store loan application request data for each user. Ideally, we have access to the underwriting service backend, and we can modify that backend to make a request to the Lambda / DynamoDB application tracking service. If we don't have access to the underwriting service, the frontend of our application can wait for the underwriting response data, then send underwriting request, response, and unique identifier data to the Lambda / DynamoDB service.
 
 # Evaluation Criteria
